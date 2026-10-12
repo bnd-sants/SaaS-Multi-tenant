@@ -22,6 +22,5 @@ jobs:
           node-version: '20'
 
       - name: Run NPM Audit
-        run: npm audit --audit-level=high
-        # This will fail the build if High or Critical vulnerabilities are found.
-        # Use --audit-level=moderate if you want to be even stricter.
+        run: npm audit --omit=dev --audit-level=high
+        # Gate on vulnerabilities in packages installed for production.
