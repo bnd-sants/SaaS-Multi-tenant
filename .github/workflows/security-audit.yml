@@ -24,3 +24,7 @@ jobs:
       - name: Run NPM Audit
         run: npm audit --omit=dev --audit-level=high
         # Gate on vulnerabilities in packages installed for production.
+
+      - name: Report development dependency findings
+        run: npm audit --audit-level=high
+        continue-on-error: true
